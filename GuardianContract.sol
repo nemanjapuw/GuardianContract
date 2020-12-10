@@ -47,7 +47,7 @@ contract GuardianContract {
         bsucceed = false;
         address g = new_owner.getOwner();
         require(isMyguard[g], "This is not allowed guardian.");
-        require(block.timestamp >= blockNumber[g], "Has exceed maximum timer limitation.");
+        require(blockNumber[g] >= block.timestamp , "Has exceed maximum timer limitation.");
 
         owner = g;
         uint index = checkGuardiansList(g);
